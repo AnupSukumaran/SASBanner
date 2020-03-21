@@ -1,0 +1,16 @@
+PODS:
+  - SASBanner (0.1.0)
+
+DEPENDENCIES:
+  - SASBanner (from `../`)
+
+EXTERNAL SOURCES:
+  SASBanner:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SASBanner: afda6cf350bb0ccb69142d822f79ec4450ad15f4
+
+PODFILE CHECKSUM: 04c1b062d2ac6fa6d348f4e40eec742700dbabe4
+
+COCOAPODS: 1.9.1
