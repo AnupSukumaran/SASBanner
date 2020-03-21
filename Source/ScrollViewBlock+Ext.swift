@@ -16,37 +16,17 @@ extension ScrollViewBlock: UIScrollViewDelegate {
     }
     
     func loadViewFromNib() -> UIView? {
-        let bundle = Bundle(for: self.classForCoder)
-        
-        return bundle.loadNibNamed("ScrollViewBlock", owner: self, options: nil)?.first as? UIView
-        
-        
-//        let bundle = Bundle(for: type(of: self))
-//        let nib = UINib(nibName: "ScrollViewBlock", bundle: bundle)
-//        let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
-//        return view
+
+        let bundle = Bundle(for: type(of: self))
+        let nib = UINib(nibName: "ScrollViewBlock", bundle: bundle)
+        let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
+        return view
     }
     
-     func loadViewFromNibV2() -> UIView? {
-
-            let bundle = Bundle(for: type(of: self)).path(forResource: "SASBanner", ofType: "bundle") ?? ""
-        
-        print("bundle = \(bundle)")
-        
-            
-            if let b = Bundle(path: bundle) {
-                let view = b.loadNibNamed("ScrollViewBlock", owner: self, options: nil)?.first as? UIView
-                return view
-            }
-            
-            return nil
-    }
 
     func xibSetup() {
         
-        guard let view = loadViewFromNib() else {
-            
-            return }
+        guard let view = loadViewFromNib() else {return }
         
         view.frame = bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
