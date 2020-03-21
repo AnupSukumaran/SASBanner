@@ -19,7 +19,23 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod 'SASBanner'
 ```
+## Steps to integrate 
 
+1) First put a view at the view controller like a banner and  assign  the view with class "ScrollViewBlock" with  "SASBanner" as Module.
+
+2) Import BannerWork at the ViewController Class
+
+2) Make a IBOutlet connection with the ViewController like this. 
+        Eg:- "@IBOutlet weak var bannerView: ScrollViewBlock!"
+        
+3) Assign Images to the banner to scroll horizontally where every necessary. Like at the ViewDidLoad 
+Eg:-  "bannerView.images = [UIImage(named: "1"),UIImage(named: "2"),UIImage(named: "3")]"
+
+4) FOR AUTOMATIC SCROLL - > call the "manualScrollingAction()" at the action of button
+Eg: - "bannerView.manualScrollingAction()"
+        
+
+---------------------------------That's all Folks---------------------------------------------------------------------
 ## Author
 
 AnupSukumaran, anup.sukumaran9@gmail.com

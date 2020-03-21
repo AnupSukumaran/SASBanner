@@ -7,18 +7,21 @@
 //
 
 import UIKit
+import SASBanner
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var bannerView: ScrollViewBlock!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        bannerView.images = [UIImage(named: "1"),UIImage(named: "2"),UIImage(named: "3")]
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func scrollAction(_ sender: Any) {
+        bannerView.manualScrollingAction()
     }
-
+    
 }
 
