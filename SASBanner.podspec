@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SASBanner'
-  s.version          = '1.0.5'
+  s.version          = '1.0.7'
   s.summary          = 'SASBanner - framework to create instant bannerView.'
 
   s.description      = <<-DESC
@@ -31,11 +31,6 @@ Pod::Spec.new do |s|
   
   s.resources = [ "Source/ScrollViewBlock.xib", "Source/Slide.xib"]
   
-  #s.resource_bundles = {
-  #  'SASBanner' => [
- #       'Source/**/*.xib'
- #   ]
- # }
   
   
 end
