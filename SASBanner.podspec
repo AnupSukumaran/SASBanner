@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'SASBanner/Source/**/*'
+  s.source_files = 'Source/**/*'
   s.swift_version = '5.0'
   
 end
