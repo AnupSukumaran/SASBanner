@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SASBanner'
-  s.version          = '1.0.1'
+  s.version          = '1.0.2'
   s.summary          = 'SASBanner - framework to create instant bannerView.'
 
   s.description      = <<-DESC

@@ -16,10 +16,15 @@ extension ScrollViewBlock: UIScrollViewDelegate {
     }
     
     func loadViewFromNib() -> UIView? {
-        let bundle = Bundle(for: type(of: self))
-        let nib = UINib(nibName: "ScrollViewBlock", bundle: bundle)
-        let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
-        return view
+        let bundle = Bundle(for: self.classForCoder)
+        
+        return bundle.loadNibNamed("ScrollViewBlock", owner: self, options: nil)?.first as? UIView
+        
+        
+//        let bundle = Bundle(for: type(of: self))
+//        let nib = UINib(nibName: "ScrollViewBlock", bundle: bundle)
+//        let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
+//        return view
     }
 
     func xibSetup() {
