@@ -29,11 +29,13 @@ Pod::Spec.new do |s|
       "ios":"10.0"
   }
   
-  s.resource_bundles = {
-    'SASBanner' => [
-        'Source/**/*.xib'
-    ]
-  }
+  s.resources = [ "Source/ScrollViewBlock.xib", "Source/Slide.xib"]
+  
+  #s.resource_bundles = {
+  #  'SASBanner' => [
+ #       'Source/**/*.xib'
+ #   ]
+ # }
   
   
 end
