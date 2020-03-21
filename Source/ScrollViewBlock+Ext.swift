@@ -44,7 +44,7 @@ extension ScrollViewBlock: UIScrollViewDelegate {
 
     func xibSetup() {
         
-        guard let view = loadViewFromNibV2() else {
+        guard let view = loadViewFromNib() else {
             
             return }
         
