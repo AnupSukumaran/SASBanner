@@ -15,8 +15,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bannerView.images = [UIImage(named: "1"),UIImage(named: "2"),UIImage(named: "3")]
+       // bannerView.slides.forEach{$0.imageView.contentMode = .scaleAspectFill}
         
+        bannerView.images = [UIImage(named: "1"),UIImage(named: "2"),UIImage(named: "3")]
+        bannerView.imgFit = .scaleAspectFit
     }
 
     @IBAction func scrollAction(_ sender: Any) {

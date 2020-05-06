@@ -34,9 +34,11 @@ extension ScrollViewBlock: UIScrollViewDelegate {
         contentView = view
     }
 
-    func settingView() {
+    func settingView(imgFit: UIView.ContentMode = .scaleAspectFit) {
         scrollView.delegate = self
-        slides = (createSlides(images: images as! [UIImage], view: self))
+         guard let img = images else {return}
+        slides = (createSlides(images: img, view: self))
+        slides.forEach{$0.imageView.contentMode = imgFit}
         setupSlideScrollView()
         pageControlSetup()
     }
@@ -47,7 +49,7 @@ extension ScrollViewBlock: UIScrollViewDelegate {
         bringSubviewToFront(pageControl)
     }
 
-    func createSlides(images: [UIImage],  view: UIView) -> [Slide] {
+    func createSlides(images: [UIImage?],  view: UIView) -> [Slide] {
         var slides = [Slide]()
         
         for i in images {

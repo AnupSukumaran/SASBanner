@@ -16,8 +16,12 @@ public class ScrollViewBlock: UIView {
 
     public var slides:[Slide] = [];
     public var contentView:UIView?
-    public var images = [UIImage?]()
-    //var thresholdVal: CGFloat = 0
+    public var imgFit: UIView.ContentMode = .scaleAspectFit
+    public var images: [UIImage?]? {
+        didSet {
+            settingView(imgFit: imgFit)
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,7 +34,7 @@ public class ScrollViewBlock: UIView {
     }
     
     override public func layoutSubviews() {
-       settingView()
+       settingView(imgFit: imgFit)
     }
     
     @IBAction func manualScrollView(_ sender: UIButton) {
