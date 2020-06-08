@@ -16,7 +16,7 @@ public class ScrollViewBlock: UIView {
     
     @IBOutlet public weak var scrollView: UIScrollView!
     @IBOutlet public weak var pageControl: UIPageControl!
-    @IBOutlet weak var delegate: ScrollViewBlockDelegate!
+    @IBOutlet public weak var delegate: ScrollViewBlockDelegate!
     
     public var viewBGColor: UIColor = .white
     public var slides:[Slide] = [];
