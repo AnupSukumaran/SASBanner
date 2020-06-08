@@ -8,12 +8,17 @@
 
 import UIKit
 
+@objc public protocol ScrollViewBlockDelegate: class {
+    func bannerTapAction(index: Int)
+}
 
 public class ScrollViewBlock: UIView {
     
     @IBOutlet public weak var scrollView: UIScrollView!
     @IBOutlet public weak var pageControl: UIPageControl!
-
+    @IBOutlet weak var delegate: ScrollViewBlockDelegate!
+    
+    public var viewBGColor: UIColor = .white
     public var slides:[Slide] = [];
     public var contentView:UIView?
     public var imgFit: UIView.ContentMode = .scaleAspectFit
@@ -25,12 +30,13 @@ public class ScrollViewBlock: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        xibSetup()
+        xibSetup(bgColor: viewBGColor)
     }
     
+   
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        xibSetup()
+        xibSetup(bgColor: viewBGColor)
     }
     
     override public func layoutSubviews() {
@@ -39,6 +45,10 @@ public class ScrollViewBlock: UIView {
     
     @IBAction func manualScrollView(_ sender: UIButton) {
         manualScrollingAction()
+    }
+    
+    @IBAction func tapGesture(_ sender: UITapGestureRecognizer) {
+        delegate?.bannerTapAction(index: pageControl.currentPage)
     }
     
 }

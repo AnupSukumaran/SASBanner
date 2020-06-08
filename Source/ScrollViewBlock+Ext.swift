@@ -15,18 +15,19 @@ extension ScrollViewBlock: UIScrollViewDelegate {
         actionAfterScrolling(scrollView, pageControl: pageControl, view: self)
     }
     
-    func loadViewFromNib() -> UIView? {
+    func loadViewFromNib(_ bgColor: UIColor = .white) -> UIView? {
 
         let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: "ScrollViewBlock", bundle: bundle)
         let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
+        view.backgroundColor = bgColor
         return view
     }
     
 
-    func xibSetup() {
+    func xibSetup(bgColor: UIColor = .white) {
         
-        guard let view = loadViewFromNib() else {return }
+        guard let view = loadViewFromNib(bgColor) else {return }
         
         view.frame = bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -54,6 +55,7 @@ extension ScrollViewBlock: UIScrollViewDelegate {
         
         for i in images {
             let sli = Slide()
+            sli.imageView.backgroundColor = viewBGColor
             sli.imageView.image = i
             slides.append(sli)
         }
@@ -76,9 +78,11 @@ extension ScrollViewBlock: UIScrollViewDelegate {
     public func manualScrollingAction() {
 
         let maxScrollContentWidth = scrollView.contentSize.width
+        
         let scrollFrameWidth = scrollView.frame.size.width
         let scrollXAxisContentOffset = scrollView.contentOffset.x
         let viewWidth = frame.width
+        
         let changingScrollWidth = (scrollFrameWidth + scrollXAxisContentOffset + viewWidth)
 
         (maxScrollContentWidth > changingScrollWidth) ?
@@ -86,13 +90,17 @@ extension ScrollViewBlock: UIScrollViewDelegate {
         (scrollView.setContentOffset(CGPoint(x: (maxScrollContentWidth - scrollFrameWidth), y: 0), animated: true))
 
     }
+    
+    public func forceScrollingTo(index: Int) {
+        let scrollXAxisContentOffset = scrollView.contentOffset.x
+        let viewWidth = frame.width * CGFloat(index)
+        (scrollView.setContentOffset(CGPoint(x: scrollXAxisContentOffset + viewWidth , y: 0), animated: true))
+    }
 
 
     func actionAfterScrolling(_ scrollView: UIScrollView, pageControl: UIPageControl, view: UIView) {
-
         let pageIndex = round(scrollView.contentOffset.x/view.frame.width)
         pageControl.currentPage = Int(pageIndex)
-
     }
     
 }
