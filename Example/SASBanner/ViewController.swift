@@ -12,11 +12,16 @@ import SASBanner
 class ViewController: UIViewController {
     
     @IBOutlet weak var bannerView: ScrollViewBlock!
+    @IBOutlet weak var webViewBase: ScrollViewBlock!
+    
+    var urlStrs = ["https://homepages.cae.wisc.edu/~ece533/images/airplane.png", "https://www.ets.org/Media/Tests/GRE/pdf/gre_research_validity_data.pdf", "https://ars.els-cdn.com/content/image/1-s2.0-S0092867416303993-mmc7.pdf"]
+    
     var dummyImgs = [UIImage(named: "1"),UIImage(named: "2"),UIImage(named: "3")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        webViewBase.hidePageControlDots = true
+        webViewBase.urlStrings = urlStrs
         bannerView.images = dummyImgs
         bannerView.imgFit = .scaleAspectFit
         

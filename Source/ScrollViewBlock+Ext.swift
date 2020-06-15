@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import WebKit
 
 extension ScrollViewBlock: UIScrollViewDelegate {
     
@@ -25,14 +25,22 @@ extension ScrollViewBlock: UIScrollViewDelegate {
     }
     
 
-    func xibSetup(bgColor: UIColor = .white) {
+    func xibSetup(bgColor: UIColor = .white, hidePageControlDots: Bool = false) {
         
         guard let view = loadViewFromNib(bgColor) else {return }
-        
+        pageControl.isHidden = hidePageControlDots
         view.frame = bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(view)
         contentView = view
+    }
+    
+    func settingWebViews() {
+        scrollView.delegate = self
+        guard let urlStrs = urlStrings else {return}
+        webViews = createWebViews(urls: urlStrs)
+        setupScrollViewForView(views: webViews)
+        pageControlSetupForViews(views: webViews)
     }
 
     func settingView(imgFit: UIView.ContentMode = .scaleAspectFit) {
@@ -43,11 +51,38 @@ extension ScrollViewBlock: UIScrollViewDelegate {
         setupSlideScrollView()
         pageControlSetup()
     }
-
+    
     func pageControlSetup() {
         pageControl.numberOfPages = slides.count
         pageControl.currentPage = 0
         bringSubviewToFront(pageControl)
+    }
+
+    func pageControlSetupForViews(views: [UIView]) {
+        pageControl.numberOfPages = views.count
+        pageControl.currentPage = 0
+        bringSubviewToFront(pageControl)
+    }
+    
+    func createWebViews(urls: [String]) -> [WebSubView] {
+        var webViews = [WebSubView]()
+        
+        for i in urls {
+            let webView = WebSubView()
+            let webConfiguration = WKWebViewConfiguration()
+            webView.webView = WKWebView(frame: contentView!.frame, configuration: webConfiguration)
+            webView.webView.allowsBackForwardNavigationGestures = true
+            webView.webView.backgroundColor = .blue
+            webView.contentView.backgroundColor = .green
+            webView.contentView.addSubview(webView.webView)
+            guard let url = URL(string: i) else {continue}
+            
+            var req = URLRequest(url: url)
+            req.cachePolicy = .returnCacheDataElseLoad
+            webView.webView.load(req)
+            webViews.append(webView)
+        }
+        return webViews
     }
 
     func createSlides(images: [UIImage?],  view: UIView) -> [Slide] {
@@ -61,6 +96,17 @@ extension ScrollViewBlock: UIScrollViewDelegate {
         }
 
         return slides
+    }
+    
+    func setupScrollViewForView(views: [UIView]) {
+        scrollView.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
+        scrollView.contentSize = CGSize(width: frame.width * CGFloat(views.count), height: frame.height)
+        scrollView.isPagingEnabled = true
+
+        for i in 0 ..< views.count {
+            views[i].frame = CGRect(x: frame.width * CGFloat(i), y: 0, width: frame.width, height: frame.height)
+            scrollView.addSubview(views[i])
+        }
     }
 
 

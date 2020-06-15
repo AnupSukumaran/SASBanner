@@ -40,18 +40,27 @@
                                     <action selector="scrollAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="EEe-u1-h0U"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSr-ZK-EnQ" customClass="ScrollViewBlock" customModule="SASBanner">
+                                <rect key="frame" x="0.0" y="371" width="375" height="407"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="kRq-sT-6I9" firstAttribute="centerX" secondItem="CeO-hF-cbi" secondAttribute="centerX" id="388-Sj-fJh"/>
+                            <constraint firstItem="aSr-ZK-EnQ" firstAttribute="top" secondItem="kRq-sT-6I9" secondAttribute="bottom" constant="8" id="5Hn-YI-VZG"/>
                             <constraint firstItem="CeO-hF-cbi" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Aai-CU-OsI"/>
                             <constraint firstAttribute="trailing" secondItem="CeO-hF-cbi" secondAttribute="trailing" id="ZXP-b6-BKQ"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="aSr-ZK-EnQ" secondAttribute="bottom" id="aUp-9R-gW6"/>
+                            <constraint firstAttribute="trailing" secondItem="aSr-ZK-EnQ" secondAttribute="trailing" id="cgF-If-Xkt"/>
                             <constraint firstItem="CeO-hF-cbi" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="pTL-pd-9wb"/>
+                            <constraint firstItem="aSr-ZK-EnQ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="xZe-ZM-EjL"/>
                             <constraint firstItem="kRq-sT-6I9" firstAttribute="top" secondItem="CeO-hF-cbi" secondAttribute="bottom" constant="36" id="yfh-tF-JWH"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="bannerView" destination="CeO-hF-cbi" id="8lg-Qe-xIq"/>
+                        <outlet property="webViewBase" destination="aSr-ZK-EnQ" id="tV1-7J-Rxa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

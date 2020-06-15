@@ -19,9 +19,25 @@ public class ScrollViewBlock: UIView {
     @IBOutlet public weak var delegate: ScrollViewBlockDelegate!
     
     public var viewBGColor: UIColor = .white
-    public var slides:[Slide] = [];
-    public var contentView:UIView?
+    
+    public var slides:[Slide] = []
+    
+    public var webViews:[WebSubView] = [] {
+        didSet {
+            xibSetup(bgColor: viewBGColor, hidePageControlDots: hidePageControlDots)
+        }
+    }
+    public var contentView: UIView?
+    public var hidePageControlDots: Bool = false
+    
     public var imgFit: UIView.ContentMode = .scaleAspectFit
+    
+    public var urlStrings: [String]? {
+        didSet {
+           settingWebViews()
+        }
+    }
+    
     public var images: [UIImage?]? {
         didSet {
             settingView(imgFit: imgFit)
@@ -40,7 +56,14 @@ public class ScrollViewBlock: UIView {
     }
     
     override public func layoutSubviews() {
-       settingView(imgFit: imgFit)
+        if let imgs = images, !imgs.isEmpty {
+            settingView(imgFit: imgFit)
+        }
+        
+        if let urlStrs = urlStrings, !urlStrs.isEmpty {
+            settingWebViews()
+        }
+       
     }
     
     @IBAction func manualScrollView(_ sender: UIButton) {
