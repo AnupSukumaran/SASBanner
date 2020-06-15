@@ -74,6 +74,8 @@ extension ScrollViewBlock: UIScrollViewDelegate {
             webView.webView.allowsBackForwardNavigationGestures = true
             webView.webView.backgroundColor = .blue
             webView.contentView.backgroundColor = .green
+            webView.webView.uiDelegate = self
+            webView.webView.navigationDelegate = self
             webView.contentView.addSubview(webView.webView)
             guard let url = URL(string: i) else {continue}
             
@@ -149,4 +151,14 @@ extension ScrollViewBlock: UIScrollViewDelegate {
         pageControl.currentPage = Int(pageIndex)
     }
     
+}
+
+extension ScrollViewBlock:  WKUIDelegate, WKNavigationDelegate {
+    public func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        delegate.startLoading()
+    }
+    
+    public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        delegate.stopLoading()
+    }
 }

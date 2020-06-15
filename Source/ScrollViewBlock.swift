@@ -10,6 +10,9 @@ import UIKit
 
 @objc public protocol ScrollViewBlockDelegate: class {
     func bannerTapAction(index: Int)
+    func startLoading()
+    func stopLoading()
+       
 }
 
 public class ScrollViewBlock: UIView {

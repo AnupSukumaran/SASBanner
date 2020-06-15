@@ -29,8 +29,6 @@ class ViewController: UIViewController {
 
     @IBAction func scrollAction(_ sender: Any) {
         bannerView.manualScrollingAction()
-      
-        
     }
     
 }
@@ -51,6 +49,12 @@ extension ViewController: ScrollViewBlockDelegate {
         present(nav, animated: true, completion: nil)
     }
     
-   
+    func startLoading() {
+        
+    }
+    
+    func stopLoading() {
+        
+    }
     
 }

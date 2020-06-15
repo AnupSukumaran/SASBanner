@@ -36,6 +36,14 @@ class SecondViewController: UIViewController {
 }
 
 extension SecondViewController: ScrollViewBlockDelegate {
+    func startLoading() {
+        
+    }
+    
+    func stopLoading() {
+        
+    }
+    
     func bannerTapAction(index: Int) {
         
     }
