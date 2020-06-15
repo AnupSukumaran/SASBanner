@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SASBanner'
-  s.version          = '1.1.2'
+  s.version          = '1.1.3'
   s.summary          = 'SASBanner - framework to create instant bannerView.'
 
   s.description      = <<-DESC
@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
       "ios":"10.0"
   }
   
-  s.resources = [ "Source/ScrollViewBlock.xib", "Source/Slide.xib"]
+  s.resources = [ "Source/ScrollViewBlock.xib", "Source/Slide.xib", "Source/WebSubView.xib"]
   
   
   
