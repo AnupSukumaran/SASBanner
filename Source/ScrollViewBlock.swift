@@ -32,12 +32,14 @@ public class ScrollViewBlock: UIView {
     }
     public var contentView: UIView?
     public var hidePageControlDots: Bool = false
+    public var webViewBGC: UIColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+    public var contentViewBGC: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     
     public var imgFit: UIView.ContentMode = .scaleAspectFit
     
     public var urlStrings: [String]? {
         didSet {
-           settingWebViews()
+           settingWebViews(webViewBGC: webViewBGC, contentViewBGC: contentViewBGC)
         }
     }
     
@@ -64,7 +66,7 @@ public class ScrollViewBlock: UIView {
         }
         
         if let urlStrs = urlStrings, !urlStrs.isEmpty {
-            settingWebViews()
+            settingWebViews(webViewBGC: webViewBGC, contentViewBGC: contentViewBGC)
         }
        
     }

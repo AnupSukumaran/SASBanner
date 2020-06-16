@@ -35,10 +35,10 @@ extension ScrollViewBlock: UIScrollViewDelegate {
         contentView = view
     }
     
-    func settingWebViews() {
+    func settingWebViews(webViewBGC: UIColor, contentViewBGC: UIColor ) {
         scrollView.delegate = self
         guard let urlStrs = urlStrings else {return}
-        webViews = createWebViews(urls: urlStrs)
+        webViews = createWebViews(urls: urlStrs, webViewBGC: webViewBGC, contentViewBGC: contentViewBGC)
         setupScrollViewForView(views: webViews)
         pageControlSetupForViews(views: webViews)
     }
@@ -64,7 +64,7 @@ extension ScrollViewBlock: UIScrollViewDelegate {
         bringSubviewToFront(pageControl)
     }
     
-    func createWebViews(urls: [String]) -> [WebSubView] {
+    func createWebViews(urls: [String], webViewBGC: UIColor, contentViewBGC: UIColor) -> [WebSubView] {
         var webViews = [WebSubView]()
         
         for i in urls {
@@ -72,8 +72,8 @@ extension ScrollViewBlock: UIScrollViewDelegate {
             let webConfiguration = WKWebViewConfiguration()
             webView.webView = WKWebView(frame: contentView!.frame, configuration: webConfiguration)
             webView.webView.allowsBackForwardNavigationGestures = true
-            webView.webView.backgroundColor = .blue
-            webView.contentView.backgroundColor = .green
+            webView.webView.backgroundColor = webViewBGC
+            webView.contentView.backgroundColor = contentViewBGC
             webView.webView.uiDelegate = self
             webView.webView.navigationDelegate = self
             webView.contentView.addSubview(webView.webView)

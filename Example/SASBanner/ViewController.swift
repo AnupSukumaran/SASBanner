@@ -20,6 +20,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        webViewBase.webViewBGC = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+        webViewBase.contentViewBGC = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         webViewBase.hidePageControlDots = true
         webViewBase.urlStrings = urlStrs
         bannerView.images = dummyImgs
