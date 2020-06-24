@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,6 +25,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="214" id="3PH-qJ-bh7"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="Cej-9C-zZJ"/>
+                                </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kRq-sT-6I9">
                                 <rect key="frame" x="152.66666666666666" y="294" width="70" height="69"/>
@@ -37,23 +40,96 @@
                                     <action selector="scrollAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="EEe-u1-h0U"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSr-ZK-EnQ" customClass="ScrollViewBlock" customModule="SASBanner">
+                                <rect key="frame" x="0.0" y="371" width="375" height="407"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="HNb-xf-nkc"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="kRq-sT-6I9" firstAttribute="centerX" secondItem="CeO-hF-cbi" secondAttribute="centerX" id="388-Sj-fJh"/>
+                            <constraint firstItem="aSr-ZK-EnQ" firstAttribute="top" secondItem="kRq-sT-6I9" secondAttribute="bottom" constant="8" id="5Hn-YI-VZG"/>
                             <constraint firstItem="CeO-hF-cbi" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Aai-CU-OsI"/>
                             <constraint firstAttribute="trailing" secondItem="CeO-hF-cbi" secondAttribute="trailing" id="ZXP-b6-BKQ"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="aSr-ZK-EnQ" secondAttribute="bottom" id="aUp-9R-gW6"/>
+                            <constraint firstAttribute="trailing" secondItem="aSr-ZK-EnQ" secondAttribute="trailing" id="cgF-If-Xkt"/>
                             <constraint firstItem="CeO-hF-cbi" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="pTL-pd-9wb"/>
+                            <constraint firstItem="aSr-ZK-EnQ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="xZe-ZM-EjL"/>
                             <constraint firstItem="kRq-sT-6I9" firstAttribute="top" secondItem="CeO-hF-cbi" secondAttribute="bottom" constant="36" id="yfh-tF-JWH"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="bannerView" destination="CeO-hF-cbi" id="8lg-Qe-xIq"/>
+                        <outlet property="webViewBase" destination="aSr-ZK-EnQ" id="tV1-7J-Rxa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="141.59999999999999" y="133.74384236453201"/>
+        </scene>
+        <!--Second View Controller-->
+        <scene sceneID="HHn-gV-aE3">
+            <objects>
+                <viewController storyboardIdentifier="SecondViewController" id="IF7-sC-qiH" customClass="SecondViewController" customModule="SASBanner_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LuJ-SJ-USh"/>
+                        <viewControllerLayoutGuide type="bottom" id="iyV-R7-1SE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="v1K-Zf-8MN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IFt-SQ-mKe" customClass="ScrollViewBlock" customModule="SASBanner">
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="delegate" destination="IF7-sC-qiH" id="g81-Ws-LtY"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="IFt-SQ-mKe" firstAttribute="leading" secondItem="v1K-Zf-8MN" secondAttribute="leading" id="aop-B7-mSZ"/>
+                            <constraint firstAttribute="trailing" secondItem="IFt-SQ-mKe" secondAttribute="trailing" id="r09-WN-XcG"/>
+                            <constraint firstItem="IFt-SQ-mKe" firstAttribute="top" secondItem="LuJ-SJ-USh" secondAttribute="bottom" id="r5g-da-ERb"/>
+                            <constraint firstItem="iyV-R7-1SE" firstAttribute="top" secondItem="IFt-SQ-mKe" secondAttribute="bottom" id="wIe-rz-4F0"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="bCw-k4-tDG">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="KWW-Af-sCE">
+                            <connections>
+                                <action selector="doneAction:" destination="IF7-sC-qiH" id="AVU-dq-4Xq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bannerView" destination="IFt-SQ-mKe" id="ADy-fQ-8wT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q53-hW-A2L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1959.2" y="133.74384236453201"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="r2L-ZI-U6y">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4v1-1T-TxJ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lfs-yW-ka5">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="IF7-sC-qiH" kind="relationship" relationship="rootViewController" id="bLS-70-OwM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ct7-S4-OyI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1016.8" y="133.74384236453201"/>
         </scene>
     </scenes>
 </document>

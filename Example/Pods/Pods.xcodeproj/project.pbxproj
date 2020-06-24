@@ -17,6 +17,8 @@
 		77B0D0879661154B23691E077E2AF584 /* Pods-SASBanner_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1242A1663A24F0294F7798442D860710 /* Pods-SASBanner_Tests-dummy.m */; };
 		8B07282E278B698ACFBF4CCA6CE33F94 /* SASBanner-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 349F35141CF142235E2110E3CBDA51DB /* SASBanner-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D2FF96B9648C283270BF0673760DF29 /* Pods-SASBanner_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7288D7FA6A9CF4CC3EF9474E872E9336 /* Pods-SASBanner_Example-dummy.m */; };
+		9D9F370524975570007F62D9 /* WebSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9F3701249752AE007F62D9 /* WebSubView.swift */; };
+		9D9F370624975573007F62D9 /* WebSubView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D9F3703249752BF007F62D9 /* WebSubView.xib */; };
 		A7FF830D6637A6B608947B1BBD382CC9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		DA3751FC484C900F66B106F05A2E9374 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		E88D9505BB9D1F234DD95C125B326416 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
@@ -72,6 +74,8 @@
 		8441C6BB2595D69F1A0376C1F45E45AA /* SASBanner.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SASBanner.modulemap; sourceTree = "<group>"; };
 		9C257539D17129B05E543CA1B187D95E /* SASBanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SASBanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D9F3701249752AE007F62D9 /* WebSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSubView.swift; sourceTree = "<group>"; };
+		9D9F3703249752BF007F62D9 /* WebSubView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebSubView.xib; sourceTree = "<group>"; };
 		B5A0E671546568E0ECDA94D41F2E8737 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B6E02E830F3F6E3279BB0824316A28C9 /* Pods-SASBanner_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SASBanner_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		BC686C7F88F23A05E8525F264B14D206 /* Pods-SASBanner_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SASBanner_Tests-umbrella.h"; sourceTree = "<group>"; };
@@ -116,6 +120,8 @@
 				182013B32426072B00487F39 /* ScrollViewBlock+Ext.swift */,
 				182013B62426072B00487F39 /* Slide.swift */,
 				182013B72426072B00487F39 /* Slide.xib */,
+				9D9F3701249752AE007F62D9 /* WebSubView.swift */,
+				9D9F3703249752BF007F62D9 /* WebSubView.xib */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -339,7 +345,7 @@
 				LastUpgradeCheck = 1100;
 				TargetAttributes = {
 					1B5772EBADA333A62921E163C4E92F1C = {
-						LastSwiftMigration = 1130;
+						LastSwiftMigration = 1150;
 					};
 					607CBEE7439CB8BBCB87527BE74B9BAA = {
 						LastSwiftMigration = 1130;
@@ -371,6 +377,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D9F370624975573007F62D9 /* WebSubView.xib in Resources */,
 				182013CB24260F9500487F39 /* Slide.xib in Resources */,
 				182013F32426419B00487F39 /* ScrollViewBlock.xib in Resources */,
 			);
@@ -405,6 +412,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D9F370524975570007F62D9 /* WebSubView.swift in Sources */,
 				182013C924260F9500487F39 /* ScrollViewBlock+Ext.swift in Sources */,
 				FDBFD63A17E3EA87F72E4F266E612165 /* SASBanner-dummy.m in Sources */,
 				182013C624260F7600487F39 /* ScrollViewBlock.swift in Sources */,
