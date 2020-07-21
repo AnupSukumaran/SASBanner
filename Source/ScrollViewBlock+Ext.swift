@@ -11,6 +11,11 @@ import WebKit
 
 extension ScrollViewBlock: UIScrollViewDelegate {
     
+    public func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        print("currentImgView = \(currentImgView)")
+        return currentImgView
+    }
+    
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         actionAfterScrolling(scrollView, pageControl: pageControl, view: self)
     }
@@ -36,7 +41,7 @@ extension ScrollViewBlock: UIScrollViewDelegate {
     }
     
     func settingWebViews(webViewBGC: UIColor, contentViewBGC: UIColor ) {
-        scrollView.delegate = self
+        
         guard let urlStrs = urlStrings else {return}
         webViews = createWebViews(urls: urlStrs, webViewBGC: webViewBGC, contentViewBGC: contentViewBGC)
         setupScrollViewForView(views: webViews)
@@ -45,6 +50,9 @@ extension ScrollViewBlock: UIScrollViewDelegate {
 
     func settingView(imgFit: UIView.ContentMode = .scaleAspectFit) {
         scrollView.delegate = self
+
+        scrollView.maximumZoomScale = 6.0
+        scrollView.minimumZoomScale = 1.0
          guard let img = images else {return}
         slides = (createSlides(images: img, view: self))
         slides.forEach{$0.imageView.contentMode = imgFit}
@@ -53,6 +61,7 @@ extension ScrollViewBlock: UIScrollViewDelegate {
     }
     
     func pageControlSetup() {
+        
         pageControl.numberOfPages = slides.count
         pageControl.currentPage = 0
         bringSubviewToFront(pageControl)
@@ -149,6 +158,8 @@ extension ScrollViewBlock: UIScrollViewDelegate {
     func actionAfterScrolling(_ scrollView: UIScrollView, pageControl: UIPageControl, view: UIView) {
         let pageIndex = round(scrollView.contentOffset.x/view.frame.width)
         pageControl.currentPage = Int(pageIndex)
+        currentImgView = slides[Int(pageIndex)].imageView
+        print("Int(pageIndex) = \(Int(pageIndex))")
     }
     
 }
@@ -162,3 +173,4 @@ extension ScrollViewBlock:  WKUIDelegate, WKNavigationDelegate {
         delegate.stopLoading()
     }
 }
+

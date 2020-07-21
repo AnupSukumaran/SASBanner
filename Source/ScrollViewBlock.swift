@@ -24,12 +24,13 @@ public class ScrollViewBlock: UIView {
     public var viewBGColor: UIColor = .white
     
     public var slides:[Slide] = []
-    
+    public var currentImgView: UIImageView?
     public var webViews:[WebSubView] = [] {
         didSet {
             xibSetup(bgColor: viewBGColor, hidePageControlDots: hidePageControlDots)
         }
     }
+    
     public var contentView: UIView?
     public var hidePageControlDots: Bool = false
     public var webViewBGC: UIColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
