@@ -25,7 +25,7 @@ extension ScrollViewBlock: UIScrollViewDelegate {
     }
     
 
-    func xibSetup(bgColor: UIColor = .white, hidePageControlDots: Bool = false) {
+    func xibSetup(bgColor: UIColor = .white, hidePageControlDots: Bool) {
         
         guard let view = loadViewFromNib(bgColor) else {return }
         pageControl.isHidden = hidePageControlDots

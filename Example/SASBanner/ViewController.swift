@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         
         bannerView.images = dummyImgs
         bannerView.imgFit = .scaleAspectFit
-        
+        bannerView.hidePageControlDots = !(dummyImgs.count > 1)
 //        let path = Bundle.main.path(forResource: "1", ofType: "jpeg", inDirectory: "Images.xcassets")
 //        let urlI = URL(fileURLWithPath: path!)
         
