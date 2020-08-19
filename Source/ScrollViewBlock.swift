@@ -31,7 +31,11 @@ public class ScrollViewBlock: UIView {
         }
     }
     public var contentView: UIView?
-    public var hidePageControlDots: Bool = false
+    public var hidePageControlDots: Bool = false {
+        didSet {
+             xibSetup(bgColor: viewBGColor, hidePageControlDots: hidePageControlDots)
+        }
+    }
     public var webViewBGC: UIColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
     public var contentViewBGC: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     
@@ -51,13 +55,13 @@ public class ScrollViewBlock: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        xibSetup(bgColor: viewBGColor)
+        xibSetup(bgColor: viewBGColor, hidePageControlDots: hidePageControlDots)
     }
     
    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        xibSetup(bgColor: viewBGColor)
+        xibSetup(bgColor: viewBGColor, hidePageControlDots: hidePageControlDots)
     }
     
     override public func layoutSubviews() {

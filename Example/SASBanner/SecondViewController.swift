@@ -21,6 +21,9 @@ class SecondViewController: UIViewController {
         bannerView.viewBGColor = .black
         bannerView.images = dummyImgs
         bannerView.imgFit = .scaleAspectFit
+//        bannerView.scrollView.delegate = self
+//        bannerView.scrollView.maximumZoomScale = 6.0
+//        bannerView.scrollView.minimumZoomScale = 1.0
         // Do any additional setup after loading the view.
     }
     
@@ -49,3 +52,8 @@ extension SecondViewController: ScrollViewBlockDelegate {
     }
     
 }
+//extension SecondViewController: UIScrollViewDelegate {
+//    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+//        return bannerView
+//    }
+//}
