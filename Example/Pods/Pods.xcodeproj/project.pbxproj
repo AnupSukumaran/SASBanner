@@ -17,6 +17,10 @@
 		77B0D0879661154B23691E077E2AF584 /* Pods-SASBanner_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1242A1663A24F0294F7798442D860710 /* Pods-SASBanner_Tests-dummy.m */; };
 		8B07282E278B698ACFBF4CCA6CE33F94 /* SASBanner-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 349F35141CF142235E2110E3CBDA51DB /* SASBanner-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D2FF96B9648C283270BF0673760DF29 /* Pods-SASBanner_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7288D7FA6A9CF4CC3EF9474E872E9336 /* Pods-SASBanner_Example-dummy.m */; };
+		9D4AE7AE2510C1EA00E894A3 /* ImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D4AE7A72510BAF000E894A3 /* ImageViewController.xib */; };
+		9D4AE7AF2510C1EC00E894A3 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4AE7A62510BAF000E894A3 /* ImageViewController.swift */; };
+		9D4AE7B02510C1F000E894A3 /* PageSlideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D4AE7A42510B85300E894A3 /* PageSlideViewController.xib */; };
+		9D4AE7B12510C1F300E894A3 /* PageSlideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4AE7A22510B84600E894A3 /* PageSlideViewController.swift */; };
 		9D9F370524975570007F62D9 /* WebSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9F3701249752AE007F62D9 /* WebSubView.swift */; };
 		9D9F370624975573007F62D9 /* WebSubView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D9F3703249752BF007F62D9 /* WebSubView.xib */; };
 		A7FF830D6637A6B608947B1BBD382CC9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
@@ -73,6 +77,10 @@
 		8343F5EFE68C0E09F437E6AD5356B0FC /* Pods-SASBanner_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SASBanner_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		8441C6BB2595D69F1A0376C1F45E45AA /* SASBanner.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SASBanner.modulemap; sourceTree = "<group>"; };
 		9C257539D17129B05E543CA1B187D95E /* SASBanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SASBanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D4AE7A22510B84600E894A3 /* PageSlideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageSlideViewController.swift; sourceTree = "<group>"; };
+		9D4AE7A42510B85300E894A3 /* PageSlideViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PageSlideViewController.xib; sourceTree = "<group>"; };
+		9D4AE7A62510BAF000E894A3 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		9D4AE7A72510BAF000E894A3 /* ImageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageViewController.xib; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9D9F3701249752AE007F62D9 /* WebSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSubView.swift; sourceTree = "<group>"; };
 		9D9F3703249752BF007F62D9 /* WebSubView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebSubView.xib; sourceTree = "<group>"; };
@@ -122,6 +130,10 @@
 				182013B72426072B00487F39 /* Slide.xib */,
 				9D9F3701249752AE007F62D9 /* WebSubView.swift */,
 				9D9F3703249752BF007F62D9 /* WebSubView.xib */,
+				9D4AE7A22510B84600E894A3 /* PageSlideViewController.swift */,
+				9D4AE7A42510B85300E894A3 /* PageSlideViewController.xib */,
+				9D4AE7A62510BAF000E894A3 /* ImageViewController.swift */,
+				9D4AE7A72510BAF000E894A3 /* ImageViewController.xib */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -345,7 +357,7 @@
 				LastUpgradeCheck = 1100;
 				TargetAttributes = {
 					1B5772EBADA333A62921E163C4E92F1C = {
-						LastSwiftMigration = 1160;
+						LastSwiftMigration = 1170;
 					};
 					607CBEE7439CB8BBCB87527BE74B9BAA = {
 						LastSwiftMigration = 1130;
@@ -379,6 +391,8 @@
 			files = (
 				9D9F370624975573007F62D9 /* WebSubView.xib in Resources */,
 				182013CB24260F9500487F39 /* Slide.xib in Resources */,
+				9D4AE7B02510C1F000E894A3 /* PageSlideViewController.xib in Resources */,
+				9D4AE7AE2510C1EA00E894A3 /* ImageViewController.xib in Resources */,
 				182013F32426419B00487F39 /* ScrollViewBlock.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,7 +429,9 @@
 				9D9F370524975570007F62D9 /* WebSubView.swift in Sources */,
 				182013C924260F9500487F39 /* ScrollViewBlock+Ext.swift in Sources */,
 				FDBFD63A17E3EA87F72E4F266E612165 /* SASBanner-dummy.m in Sources */,
+				9D4AE7B12510C1F300E894A3 /* PageSlideViewController.swift in Sources */,
 				182013C624260F7600487F39 /* ScrollViewBlock.swift in Sources */,
+				9D4AE7AF2510C1EC00E894A3 /* ImageViewController.swift in Sources */,
 				182013CA24260F9500487F39 /* Slide.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

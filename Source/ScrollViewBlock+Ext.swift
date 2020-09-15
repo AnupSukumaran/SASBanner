@@ -24,15 +24,60 @@ extension ScrollViewBlock: UIScrollViewDelegate {
         return view
     }
     
+    func loadPageSlideViewController(_ bgColor: UIColor = .white, baseVC: UIViewController)  -> UIView? {
+
+        let bundle = Bundle(for: type(of: self))
+        let pageVC = PageSlideViewController(nibName: "PageSlideViewController", bundle: bundle)//UINib(nibName: "ScrollViewBlock", bundle: bundle)
+//        let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
+//        view.backgroundColor = bgColor
+//        view.ad
+        //pageVC.didMove(toParent: self)
+        //pageVC.view.frame =
+        baseVC.addChild(baseVC)
+        pageVC.testLabels = testLabels
+        
+        return pageVC.view
+       // addSubview(pageVC.view)
+    }
+    
 
     func xibSetup(bgColor: UIColor = .white, hidePageControlDots: Bool) {
         
         guard let view = loadViewFromNib(bgColor) else {return }
-        pageControl.isHidden = hidePageControlDots
+//        pageControl.isHidden = hidePageControlDots
         view.frame = bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        
         addSubview(view)
         contentView = view
+//        if let vcView = loadPageSlideViewController(bgColor, baseVC: baseVC) {
+//            vcView.frame = view.frame
+//            view.addSubview(vcView)
+//            addSubview(view)
+//
+//            contentView = view
+//            contentView?.bringSubviewToFront(vcView)
+//
+//        }
+    
+       
+    }
+    
+    func settingPageViewController(baseVC: UIViewController) {
+        let bundle = Bundle(for: type(of: self))
+        
+        
+        
+        var pageVC = PageSlideViewController(nibName: "PageSlideViewController", bundle: bundle)
+        
+        pageVC = PageSlideViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+        
+         pageVC.testLabels = testLabels
+        baseVC.addChild(pageVC)
+        pageVC.view.frame = self.frame
+        self.addSubview(pageVC.view)
+        pageVC.didMove(toParent: baseVC)
     }
     
     func settingWebViews(webViewBGC: UIColor, contentViewBGC: UIColor ) {
@@ -43,7 +88,17 @@ extension ScrollViewBlock: UIScrollViewDelegate {
         pageControlSetupForViews(views: webViews)
     }
 
+
     func settingView(imgFit: UIView.ContentMode = .scaleAspectFit) {
+        scrollView.delegate = self
+         guard let img = images else {return}
+        slides = (createSlides(images: img, view: self))
+        slides.forEach{$0.imageView.contentMode = imgFit}
+        setupSlideScrollView()
+        pageControlSetup()
+    }
+    
+    func settingViewForPageViewController(imgFit: UIView.ContentMode = .scaleAspectFit) {
         scrollView.delegate = self
          guard let img = images else {return}
         slides = (createSlides(images: img, view: self))
@@ -99,6 +154,7 @@ extension ScrollViewBlock: UIScrollViewDelegate {
 
         return slides
     }
+
     
     func setupScrollViewForView(views: [UIView]) {
         scrollView.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
@@ -113,6 +169,17 @@ extension ScrollViewBlock: UIScrollViewDelegate {
 
 
     func setupSlideScrollView() {
+        scrollView.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
+        scrollView.contentSize = CGSize(width: frame.width * CGFloat(slides.count), height: frame.height)
+        scrollView.isPagingEnabled = true
+
+        for i in 0 ..< slides.count {
+            slides[i].frame = CGRect(x: frame.width * CGFloat(i), y: 0, width: frame.width, height: frame.height)
+            scrollView.addSubview(slides[i])
+        }
+    }
+    
+    func setupPageSlide() {
         scrollView.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
         scrollView.contentSize = CGSize(width: frame.width * CGFloat(slides.count), height: frame.height)
         scrollView.isPagingEnabled = true

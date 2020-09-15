@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -41,17 +41,24 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSr-ZK-EnQ" customClass="ScrollViewBlock" customModule="SASBanner">
-                                <rect key="frame" x="0.0" y="371" width="375" height="407"/>
+                                <rect key="frame" x="0.0" y="557" width="375" height="221"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="HNb-xf-nkc"/>
                                 </connections>
                             </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Elf-CJ-8RO">
+                                <rect key="frame" x="0.0" y="385" width="375" height="176"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="1ZD-7V-vkE" kind="embed" id="uNc-nY-xgh"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="kRq-sT-6I9" firstAttribute="centerX" secondItem="CeO-hF-cbi" secondAttribute="centerX" id="388-Sj-fJh"/>
-                            <constraint firstItem="aSr-ZK-EnQ" firstAttribute="top" secondItem="kRq-sT-6I9" secondAttribute="bottom" constant="8" id="5Hn-YI-VZG"/>
+                            <constraint firstItem="aSr-ZK-EnQ" firstAttribute="top" secondItem="kRq-sT-6I9" secondAttribute="bottom" constant="194" id="5Hn-YI-VZG"/>
                             <constraint firstItem="CeO-hF-cbi" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Aai-CU-OsI"/>
                             <constraint firstAttribute="trailing" secondItem="CeO-hF-cbi" secondAttribute="trailing" id="ZXP-b6-BKQ"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="aSr-ZK-EnQ" secondAttribute="bottom" id="aUp-9R-gW6"/>
@@ -68,7 +75,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="141.59999999999999" y="133.74384236453201"/>
+            <point key="canvasLocation" x="-487" y="134"/>
         </scene>
         <!--Second View Controller-->
         <scene sceneID="HHn-gV-aE3">
@@ -112,6 +119,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q53-hW-A2L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1959.2" y="133.74384236453201"/>
+        </scene>
+        <!--Page Slide View Controller-->
+        <scene sceneID="bME-1l-PY2">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="max" doubleSided="YES" id="1ZD-7V-vkE" customClass="PageSlideViewController" customModule="SASBanner" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KuO-qK-13T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="337" y="192"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r2L-ZI-U6y">
